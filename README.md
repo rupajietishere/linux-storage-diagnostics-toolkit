@@ -120,34 +120,3 @@ Agent Status:       ACTIVE
   [HEALTHY] No issues detected in this sweep cycle.
 ==================================================
 ```
-
----
-
-## 💡 System Design Q&A (Interview Cheat-Sheet)
-
-* **Q: Why Unix Domain Sockets over TCP Sockets for local IPC?**
-  * **A:** Unix Domain Sockets are faster and consume fewer system resources because they bypass the TCP/IP network stack entirely. They avoid checksum calculations, routing, and sliding-window controls, directly copying memory buffers between user spaces within the kernel boundary.
-* **Q: What is the difference between Virtual Memory (VSZ) and Resident Set Size (RSS)?**
-  * **A:** Virtual Memory represents the total address space the operating system has reserved for a process (including shared libraries and mapped files). RSS represents the actual physical RAM frames currently allocated to the process execution. Tracking RSS is critical for detecting silent memory leak patterns in high-availability environments.
-* **Q: Why did you pack the C structure?**
-  * **A:** To guarantee a strict 84-byte payload. Without `#pragma pack(1)`, different compiler versions or target processor architectures may align data fields differently (such as placing 4-byte boundaries around a `char` array), leading to memory alignment corruption when Python attempts to unpack the stream.
-```
-
----
-
-### How to Save This and Finish Pushing:
-
-Once you have saved this write-up inside `README.md`, run these final commands in your WSL terminal to commit the changes and push to GitHub:
-
-```bash
-# 1. Stage the updated README.md
-git add README.md
-
-# 2. Commit the change
-git commit -m "Docs: Update README with project architecture and technical deep-dive"
-
-# 3. Rename the branch, set up remote, and push
-git branch -M main
-git remote add origin https://github.com/<YOUR-GITHUB-USERNAME>/linux-storage-diagnostics-toolkit.git
-git push -u origin main
-```
