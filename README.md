@@ -4,6 +4,12 @@ A lightweight, high-performance systems diagnostic toolkit engineered to monitor
 
 ---
 
+## 🎯 Design Motivation
+
+In enterprise, high-availability storage platforms (such as deduplicating filesystems), background monitoring agents must have a negligible resource footprint. Spawning heavy subprocesses or relying on verbose serialization formats (like JSON over HTTP) can saturate CPU caches, trigger memory overhead, or block critical system operations. 
+
+This toolkit was designed to explore how to build a low-overhead, user-space systems monitoring agent from scratch using native POSIX system calls, kernel-state parsing (`/proc`), and zero-allocation binary serialization over local Unix Domain Sockets.
+
 ## 🏗️ Architecture Overview
 
 The system utilizes an agent-collector design to achieve minimal CPU and memory footprints on production storage nodes:
