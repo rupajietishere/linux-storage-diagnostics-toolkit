@@ -1,0 +1,19 @@
+# Compiled binaries
+storage_diag_agent
+
+# Object files and library files
+*.o
+*.a
+*.so
+
+# Python cache and temporary directories
+__pycache__/
+*.pyc
+
+# OS-specific temporary files
+.DS_Store
+Thumbs.db
+
+# Sockets and logs
+*.sock
+*.log
