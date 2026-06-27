@@ -10,6 +10,8 @@ In enterprise, high-availability storage platforms (such as deduplicating filesy
 
 This toolkit was designed to explore how to build a low-overhead, user-space systems monitoring agent from scratch using native POSIX system calls, kernel-state parsing (`/proc`), and zero-allocation binary serialization over local Unix Domain Sockets.
 
+---
+
 ## 🏗️ Architecture Overview
 
 The system utilizes an agent-collector design to achieve minimal CPU and memory footprints on production storage nodes:
